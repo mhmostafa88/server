@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
 
 const storySchema = new mongoose.Schema({
-  // id, title, description, points, completedPoints
-  id: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: true,
   },
   description: {
     type: String,
-    required: true,
+    default: ""
   },
   points: {
     type: Number,
@@ -20,8 +15,8 @@ const storySchema = new mongoose.Schema({
   },
   completedPoints: {
     type: Number,
-    required: true,
-  },
+    default: 0,
+  }
 });
 
 const StoryModel = mongoose.model("stories",storySchema)
